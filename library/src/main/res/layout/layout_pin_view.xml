@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pin="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/fragment_padding">
+
+    <TextView
+        android:id="@+id/pin_header_label"
+        style="@style/LightIfPossible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/pin_header_label_size"
+        android:layout_marginTop="@dimen/fragment_padding"
+        android:layout_marginBottom="@dimen/fragment_padding"
+        android:textColor="@color/pin_gray"
+        android:gravity="center" />
+
+    <com.venmo.android.pin.view.PinputView
+        android:id="@+id/pin_pinputview"
+        android:layout_below="@id/pin_header_label"
+        android:layout_width="match_parent"
+        android:cursorVisible="false"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/pinputview_default_text_size"
+        pin:backgroundColor="@color/pin_light_gray_50"
+        pin:foregroundColor="@color/pin_blue" />
+
+    <ProgressBar
+        android:id="@+id/pin_progress_spinner"
+        android:layout_width="@dimen/pin_view_progressbar_size"
+        android:layout_height="@dimen/pin_view_progressbar_size"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:layout_alignTop="@id/pin_pinputview" />
+
+    <com.venmo.android.pin.view.PinKeyboardView
+        android:id="@+id/pin_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pin_pinputview"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:layout_centerInParent="true"
+        pin:textColor="@color/pin_blue"
+        pin:keyBackground="@drawable/pin_key_selector" />
+
+</RelativeLayout>
+

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android Pin</string>
+    <string name="verify_n_digit_pin">Enter your %d-digit PIN</string>
+    <string name="create_n_digit_pin">Create a %d-digit PIN</string>
+    <string name="confirm_n_digit_pin">Confirm your %d-digit PIN</string>
+    <string name="pin_mismatch">PIN did not match</string>
+    <string name="pin_created">PIN created</string>
+</resources>

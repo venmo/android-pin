@@ -1,0 +1,16 @@
+<resources>
+    <declare-styleable name="PinputView">
+        <attr name="pinLen" format="integer" />
+        <attr name="foregroundColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="characterPadding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="PinKeyboardView">
+        <attr name="keyBackground" format="integer" />
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="showUnderline" format="boolean" />
+        <attr name="underlinePadding" format="dimension" />
+        <attr name="keyUnderlineColor" format="color" />
+    </declare-styleable>
+</resources>

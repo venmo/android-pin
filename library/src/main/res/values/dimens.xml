@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fragment_padding">16dp</dimen>
+    <dimen name="keyboard_underline_padding">20dp</dimen>
+    <dimen name="pin_keyboard_default_text_size">24sp</dimen>
+    <dimen name="pin_header_label_size">24sp</dimen>
+    <dimen name="pinputview_default_text_size">22sp</dimen>
+    <dimen name="pinputview_default_char_padding">6dp</dimen>
+    <dimen name="pin_view_progressbar_size">32dp</dimen>
+</resources>

@@ -11,31 +11,38 @@ public class PinFragmentConfiguration {
     private Validator mValidator;
     private int mMaxTries = UNLIMITED_TRIES;
     private TryDepletionListener mTryDepletionListener;
+    private PinSaver mPinSaver;
 
     public PinFragmentConfiguration(Context c) {
         mValidator = new DefaultValidator(c);
+        mPinSaver = new DefaultSaver(c);
     }
 
-    public PinFragmentConfiguration(Validator validator) {
+    public PinFragmentConfiguration(Validator validator, PinSaver saver) {
         mValidator = validator;
+        mPinSaver = saver;
     }
 
     @SuppressWarnings("unused")
     public PinFragmentConfiguration validator(Validator validator) {
-        if (validator == null) {
-            throw new IllegalArgumentException("Cannot pass in a null validator");
-        }
         mValidator = validator;
         return this;
     }
 
-    public Validator validator() {
+    public PinFragmentConfiguration pinSaver(PinSaver saver) {
+        mPinSaver = saver;
+        return this;
+    }
+
+    public Validator getValidator() {
         return mValidator;
     }
 
+    public PinSaver getPinSaver() {return mPinSaver;}
+
     /**
      * @param max number of allowed errors per session. For no maximum, use {@link
-     * com.venmo.pin.PinFragmentConfiguration#UNLIMITED_TRIES}
+     * com.venmo.android.pin.PinFragmentConfiguration#UNLIMITED_TRIES}
      * @param depletionListener listener to take action when tries have been used up
      */
     @SuppressWarnings("unused")

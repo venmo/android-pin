@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,16 +14,21 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 import com.venmo.android.pin.util.VibrationHelper;
 import com.venmo.android.pin.view.PinKeyboardView;
 import com.venmo.android.pin.view.PinputView;
+import com.venmo.android.pin.view.PinputView.OnCommitListener;
+
+import java.util.concurrent.ExecutorService;
 
 import static android.view.MotionEvent.ACTION_DOWN;
+import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 abstract class BaseViewController {
 
+    private ExecutorService mExecutor;
     protected PinFragment mPinFragment;
     protected Context mContext;
     protected PinputView mPinputView;
@@ -53,7 +60,7 @@ abstract class BaseViewController {
     }
 
     abstract void initUI();
-    abstract PinputView.Listener provideListener();
+    abstract OnCommitListener provideListener();
 
     private void initKeyboard() {
         mKeyboardView.setOnKeyboardActionListener(new PinKeyboardView.PinPadActionListener() {
@@ -124,5 +131,37 @@ abstract class BaseViewController {
             public void onAnimationRepeat(Animator animation) {}
         });
         return a;
+    }
+
+    void resetPinputView(){
+        mProgressBar.setVisibility(View.INVISIBLE);
+        float centerPosition = (mRootView.getWidth() / 2) - (mPinputView.getWidth() / 2);
+        mPinputView.setX(centerPosition);
+        mPinputView.getText().clear();
+    }
+
+    protected void runAsync(Runnable runnable) {
+        getExecutor().submit(runnable);
+    }
+
+    protected void postToMain(Runnable runnable) {
+        new Handler(Looper.getMainLooper()).post(runnable);
+    }
+
+    void generalErrorAsync(final String s){
+        postToMain(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(mPinFragment.getActivity(), s, Toast.LENGTH_SHORT).show();
+                resetPinputView();
+            }
+        });
+    }
+
+    private ExecutorService getExecutor() {
+        if (mExecutor == null) {
+            mExecutor = newSingleThreadExecutor();
+        }
+        return mExecutor;
     }
 }

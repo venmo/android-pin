@@ -41,13 +41,13 @@ public class PinputView extends TextView {
     private int mCharPadding;
     private Pair<Drawable, Drawable>[] mDrawables;
     private int mPinLen;
-    private Listener mListener;
+    private OnCommitListener mListener;
     private final int mAnimDuration = 150;
     private Animator mErrorAnimator;
     private boolean mVibrateOnError = true;
     private int mErrorVibrationLen = VIBRATE_LENGTH_DEFAULT;
 
-    public interface Listener {
+    public interface OnCommitListener {
         public void onPinCommit(PinputView view, String submission);
     }
 
@@ -189,7 +189,7 @@ public class PinputView extends TextView {
         mErrorVibrationLen = millis;
     }
 
-    public void setListener(Listener listener) {
+    public void setListener(OnCommitListener listener) {
         mListener = listener;
     }
 

@@ -4,7 +4,7 @@ import android.animation.Animator;
 import android.view.View;
 
 import com.venmo.android.pin.view.PinputView;
-
+import com.venmo.android.pin.view.PinputView.OnCommitListener;
 
 class CreatePinViewController extends BaseViewController {
     CreatePinViewController(PinFragment f, View v) {
@@ -19,8 +19,8 @@ class CreatePinViewController extends BaseViewController {
     }
 
     @Override
-    PinputView.Listener provideListener() {
-        return new PinputView.Listener() {
+    OnCommitListener provideListener() {
+        return new OnCommitListener() {
             @Override
             public void onPinCommit(PinputView view, String submission) {
                 Animator a = getOutAndInAnim(mPinputView, mPinputView);

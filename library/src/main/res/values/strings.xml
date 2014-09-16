@@ -5,4 +5,6 @@
     <string name="confirm_n_digit_pin">Confirm your %d-digit PIN</string>
     <string name="pin_mismatch">PIN did not match</string>
     <string name="pin_created">PIN created</string>
+    <string name="saving_pin">Saving PIN</string>
+    <string name="async_save_error">Error saving PIN</string>
 </resources>

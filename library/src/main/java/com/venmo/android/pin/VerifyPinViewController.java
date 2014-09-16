@@ -1,19 +1,14 @@
 package com.venmo.android.pin;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 
 import com.venmo.android.pin.view.PinputView;
-
-import java.util.concurrent.ExecutorService;
+import com.venmo.android.pin.view.PinputView.OnCommitListener;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
-import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 class VerifyPinViewController extends BaseViewController {
     private static final String KEY_INCORRECT_PIN_ATTEMPTS = "com.venmo.pin.incorrect_pin_attempts";
-    private ExecutorService mExecutor;
 
     VerifyPinViewController(PinFragment f, View v) {
         super(f, v);
@@ -27,34 +22,38 @@ class VerifyPinViewController extends BaseViewController {
     }
 
     @Override
-    PinputView.Listener provideListener() {
-        return new PinputView.Listener() {
+    OnCommitListener provideListener() {
+        return new OnCommitListener() {
             @Override
             public void onPinCommit(PinputView view, final String submission) {
-                final Validator validator = getConfig().validator();
-                if (validator instanceof AsyncValidator) {
-                    getOutAndInAnim(mPinputView, mProgressBar).start();
-                    getExecutor().submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            final boolean valid = validator.isValid(submission);
-                            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    handleAsyncValidation(valid);
-                                }
-                            });
-                        }
-                    });
-                } else {
-                    handleValidation(validator.isValid(submission));
-                }
+                validate(submission);
             }
         };
     }
 
-    private ExecutorService getExecutor() {
-        return mExecutor == null ? newSingleThreadExecutor() : mExecutor;
+    protected void validate(final String submission) {
+        final Validator validator = getConfig().getValidator();
+        if (validator instanceof AsyncValidator) {
+            getOutAndInAnim(mPinputView, mProgressBar).start();
+            runAsync(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final boolean valid = validator.isValid(submission);
+                        postToMain(new Runnable() {
+                            @Override
+                            public void run() {
+                                handleAsyncValidation(valid);
+                            }
+                        });
+                    } catch (Exception e) {
+                        generalErrorAsync(mPinFragment.getString(R.string.async_save_error));
+                    }
+                }
+            });
+        } else {
+            handleValidation(validator.isValid(submission));
+        }
     }
 
     private void handleValidation(boolean isValid) {
@@ -70,9 +69,7 @@ class VerifyPinViewController extends BaseViewController {
     private void handleAsyncValidation(boolean valid) {
         handleValidation(valid);
         if (!valid) {
-            mProgressBar.setVisibility(View.INVISIBLE);
-            float centerPosition = (mRootView.getWidth() / 2) - (mPinputView.getWidth() / 2);
-            mPinputView.setX(centerPosition);
+            resetPinputView();
         }
     }
 

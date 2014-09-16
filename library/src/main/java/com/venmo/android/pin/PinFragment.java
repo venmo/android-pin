@@ -24,7 +24,7 @@ public class PinFragment extends Fragment {
 
     public interface Listener {
         public void onValidated();
-        public void onPinCreated(String pin);
+        public void onPinCreated();
     }
 
     public static PinFragment newInstanceForVerification() {
@@ -102,8 +102,8 @@ public class PinFragment extends Fragment {
         mListener.onValidated();
     }
 
-    void notifyCreated(String pin) {
-        mListener.onPinCreated(pin);
+    void notifyCreated() {
+        mListener.onPinCreated();
     }
 
     void setDisplayType(PinDisplayType type) {

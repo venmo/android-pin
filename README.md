@@ -55,6 +55,8 @@ getFragmentManager().beginTransaction()
                 .commit();
 ```
 
+In general, any time a custom `PinSaver` is defined, it should follow that a custom `Validator` is also defined. This may be more strictly enforced in the future.
+
 Asynchronous Handling
 =====================
 A very common use case for providing an alternative `Validator` and `PinSaver` is if you persist a user's PIN remotely and validate by making a request to your server. In this case, `PinFragment` can execute your saving and checking on a background thread and show a `ProgressBar` while executing. To utilize this, pass implementations of `AsyncSaver` and `AsyncValidator` to your configuration.

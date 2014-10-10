@@ -1,7 +1,7 @@
 Android-Pin
 ===========
 
-A configurable PIN input Fragment for Android
+An easy drop-in PIN controller for Android
 
 Usage
 =====

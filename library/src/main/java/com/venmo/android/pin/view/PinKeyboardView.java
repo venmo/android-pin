@@ -47,15 +47,15 @@ public class PinKeyboardView extends KeyboardView {
         final TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.PinKeyboardView, defStyle, 0);
         // @formatter:on
         Resources res = getResources();
-        mKeyBackgroundDrawable = a.getDrawable(R.styleable.PinKeyboardView_keyBackground);
-        mShowUnderline = a.getBoolean(R.styleable.PinKeyboardView_showUnderline, false);
+        mKeyBackgroundDrawable = a.getDrawable(R.styleable.PinKeyboardView_pinkeyboardview_keyBackground);
+        mShowUnderline = a.getBoolean(R.styleable.PinKeyboardView_pinkeyboardview_showUnderline, false);
         mUnderlinePadding =
-                a.getDimensionPixelSize(R.styleable.PinKeyboardView_underlinePadding,
+                a.getDimensionPixelSize(R.styleable.PinKeyboardView_pinkeyboardview_underlinePadding,
                         res.getDimensionPixelSize(R.dimen.keyboard_underline_padding));
-        int textSize = a.getDimensionPixelSize(R.styleable.PinKeyboardView_textSize,
+        int textSize = a.getDimensionPixelSize(R.styleable.PinKeyboardView_pinkeyboardview_textSize,
                 res.getDimensionPixelSize(R.dimen.pin_keyboard_default_text_size));
-        int textColor = a.getColor(R.styleable.PinKeyboardView_textColor, Color.BLACK);
-        int underlineColor = a.getColor(R.styleable.PinKeyboardView_keyUnderlineColor,
+        int textColor = a.getColor(R.styleable.PinKeyboardView_pinkeyboardview_textColor, Color.BLACK);
+        int underlineColor = a.getColor(R.styleable.PinKeyboardView_pinkeyboardview_keyUnderlineColor,
                 getResources().getColor(R.color.pin_light_gray_50));
         a.recycle();
 

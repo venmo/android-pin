@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/pinputview_default_text_size"
-        pin:backgroundColor="@color/pin_light_gray_50"
-        pin:foregroundColor="@color/pin_blue" />
+        pin:pinputview_backgroundColor="@color/pin_light_gray_50"
+        pin:pinputview_foregroundColor="@color/pin_blue" />
 
     <ProgressBar
         android:id="@+id/pin_progress_spinner"
@@ -45,8 +45,8 @@
         android:layout_marginTop="32dp"
         android:background="@android:color/transparent"
         android:layout_centerInParent="true"
-        pin:textColor="@color/pin_blue"
-        pin:keyBackground="@drawable/pin_key_selector" />
+        pin:pinkeyboardview_textColor="@color/pin_blue"
+        pin:pinkeyboardview_keyBackground="@drawable/pin_key_selector" />
 
 </RelativeLayout>
 

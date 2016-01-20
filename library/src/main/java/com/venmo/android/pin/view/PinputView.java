@@ -74,11 +74,11 @@ public class PinputView extends TextView {
         setFocusableInTouchMode(false);
         setKeyListener(DigitsKeyListener.getInstance(false, false));
 
-        mPinLen = a.getInt(R.styleable.PinputView_pinLen, 4);
-        mCharPadding = (int) a.getDimension(R.styleable.PinputView_characterPadding,
+        mPinLen = a.getInt(R.styleable.PinputView_pinputview_len, 4);
+        mCharPadding = (int) a.getDimension(R.styleable.PinputView_pinputview_characterPadding,
                 getResources().getDimension(R.dimen.pinputview_default_char_padding));
-        int foregroundColor = a.getColor(R.styleable.PinputView_foregroundColor, Color.BLUE);
-        int backgroundColor = a.getColor(R.styleable.PinputView_backgroundColor, Color.GRAY);
+        int foregroundColor = a.getColor(R.styleable.PinputView_pinputview_foregroundColor, Color.BLUE);
+        int backgroundColor = a.getColor(R.styleable.PinputView_pinputview_backgroundColor, Color.GRAY);
 
         a.recycle();
 

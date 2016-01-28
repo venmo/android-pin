@@ -101,7 +101,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.venmo.android.pin:library:0.1@aar'
+    compile 'com.venmo.android.pin:library:0.2@aar'
 }
 ```
 

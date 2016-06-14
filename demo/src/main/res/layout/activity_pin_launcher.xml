@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/activity_pin_launcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.venmo.android.pin.pindemo.demo.PinLauncher"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="73dp">
+
+    <TextView
+            android:text="Pin Demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="106dp"
+            android:id="@+id/title"
+            android:textSize="30sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            tools:layout_constraintLeft_creator="0"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            tools:layout_constraintRight_creator="0"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_centerHorizontal="true"/>
+
+    <Button
+            android:text="SDK Demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="56dp"
+            tools:layout_editor_absoluteY="149dp"
+            android:id="@+id/sdk_button"
+            android:layout_marginLeft="56dp"
+            android:layout_marginStart="56dp"
+            tools:layout_constraintLeft_creator="0"
+            android:layout_marginTop="8dp"
+            tools:layout_constraintTop_creator="0"
+            android:layout_below="@id/title"/>
+
+    <Button
+            android:text="Support Demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="205dp"
+            tools:layout_editor_absoluteY="149dp"
+            android:id="@+id/support_button"
+            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
+            tools:layout_constraintRight_creator="0"
+            tools:layout_constraintBaseline_creator="0"
+            android:layout_toRightOf="@id/sdk_button"
+            android:layout_alignBottom="@id/sdk_button"/>
+</RelativeLayout>

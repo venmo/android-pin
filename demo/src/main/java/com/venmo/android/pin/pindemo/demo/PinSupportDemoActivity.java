@@ -1,27 +1,27 @@
 package com.venmo.android.pin.pindemo.demo;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.venmo.android.pin.PinListener;
-import com.venmo.android.pin.PinSdkFragment;
+import com.venmo.android.pin.PinSupportFragment;
 import com.venmo.android.pin.util.PinHelper;
 
-public class PinDemoActivity extends Activity implements PinListener {
+public class PinSupportDemoActivity extends FragmentActivity implements PinListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin_demo);
         Fragment toShow = PinHelper.hasDefaultPinSaved(this) ?
-                PinSdkFragment.newInstanceForVerification() :
-                PinSdkFragment.newInstanceForCreation();
+                PinSupportFragment.newInstanceForVerification() :
+                PinSupportFragment.newInstanceForCreation();
 
-        getFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(R.id.root, toShow, toShow.getClass().getSimpleName())
                 .commit();
     }

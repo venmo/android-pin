@@ -6,7 +6,6 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Condition;
 import com.robotium.solo.Solo;
-import com.venmo.android.pin.PinFragment.PinDisplayType;
 import com.venmo.android.pin.util.PinHelper;
 import com.venmo.android.pin.view.PinKeyboardView;
 import com.venmo.android.pin.view.PinputView;

@@ -26,10 +26,10 @@ import java.util.concurrent.ExecutorService;
 import static android.view.MotionEvent.ACTION_DOWN;
 import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
-abstract class BaseViewController {
+abstract class BaseViewController<T extends PinFragment> {
 
     private ExecutorService mExecutor;
-    protected PinFragment mPinFragment;
+    protected T mPinFragment;
     protected Context mContext;
     protected PinputView mPinputView;
     protected PinKeyboardView mKeyboardView;
@@ -37,9 +37,9 @@ abstract class BaseViewController {
     protected ProgressBar mProgressBar;
     protected View mRootView;
 
-    /*package*/ BaseViewController(PinFragment f, View v) {
+    /*package*/ BaseViewController(T f, View v) {
         mPinFragment = f;
-        mContext = f.getActivity();
+        mContext = f.getContext();
         mRootView = v;
         init();
     }
@@ -152,7 +152,7 @@ abstract class BaseViewController {
         postToMain(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(mPinFragment.getActivity(), s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, s, Toast.LENGTH_SHORT).show();
                 resetPinputView();
             }
         });

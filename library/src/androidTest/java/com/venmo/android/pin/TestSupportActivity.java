@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.venmo.android.pin.PinFragmentConfiguration.UNLIMITED_TRIES;
 
-public class TestActivity extends FragmentActivity implements PinListener {
+public class TestSupportActivity extends FragmentActivity implements PinListener {
 
     static final String KEY_DISPLAY_TYPE = "com.venmo.test.pin_display_type";
     static final String KEY_MAX_TRIES = "com.venmo.test.pin_max_tries";
@@ -31,11 +31,11 @@ public class TestActivity extends FragmentActivity implements PinListener {
                             reachedMaxTries.set(true);
                         }
                     });
-            PinSdkFragment pf = type == PinDisplayType.CREATE ?
-                    PinSdkFragment.newInstanceForCreation(config) :
-                    PinSdkFragment.newInstanceForVerification(config);
+            PinSupportFragment pf = type == PinDisplayType.CREATE ?
+                    PinSupportFragment.newInstanceForCreation(config) :
+                    PinSupportFragment.newInstanceForVerification(config);
 
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, pf, PinSdkFragment.class.getSimpleName())
                     .commit();
         }

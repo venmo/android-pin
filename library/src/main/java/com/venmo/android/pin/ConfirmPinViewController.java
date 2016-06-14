@@ -6,10 +6,10 @@ import android.widget.Toast;
 import com.venmo.android.pin.view.PinputView;
 import com.venmo.android.pin.view.PinputView.OnCommitListener;
 
-class ConfirmPinViewController extends BaseViewController {
+class ConfirmPinViewController<T extends PinFragment> extends BaseViewController<T> {
     private String mTruthString;
 
-    ConfirmPinViewController(PinFragment f, View v, String truth) {
+    ConfirmPinViewController(T f, View v, String truth) {
         super(f, v);
         mTruthString = truth;
     }
@@ -71,7 +71,7 @@ class ConfirmPinViewController extends BaseViewController {
     }
 
     private void resetToCreate() {
-        mPinFragment.setDisplayType(PinFragment.PinDisplayType.CREATE);
+        mPinFragment.setDisplayType(PinDisplayType.CREATE);
         mPinFragment.setViewController(new CreatePinViewController(mPinFragment, mRootView));
     }
 

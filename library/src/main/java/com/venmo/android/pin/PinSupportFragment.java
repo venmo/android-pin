@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class PinSupportFragment extends Fragment implements PinFragment {
+public class PinSupportFragment extends Fragment implements PinFragmentImplement {
 
     private static final String KEY_FRAGMENT_VIEW_TYPE = "com.venmo.input_fragment_view_type";
 

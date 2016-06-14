@@ -7,7 +7,7 @@ import com.venmo.android.pin.view.PinputView.OnCommitListener;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
-class VerifyPinViewController<T extends PinFragment> extends BaseViewController<T> {
+class VerifyPinViewController<T extends PinFragmentImplement> extends BaseViewController<T> {
     private static final String KEY_INCORRECT_PIN_ATTEMPTS = "com.venmo.pin.incorrect_pin_attempts";
 
     VerifyPinViewController(T f, View v) {

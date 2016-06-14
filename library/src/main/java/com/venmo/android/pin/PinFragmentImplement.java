@@ -5,7 +5,7 @@ import android.content.Context;
 /**
  * Created by rmercille on 6/13/16.
  */
-public interface PinFragment {
+public interface PinFragmentImplement {
     Context getContext();
 
     String getString(int resId);

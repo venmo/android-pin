@@ -6,7 +6,7 @@ import android.widget.Toast;
 import com.venmo.android.pin.view.PinputView;
 import com.venmo.android.pin.view.PinputView.OnCommitListener;
 
-class ConfirmPinViewController<T extends PinFragment> extends BaseViewController<T> {
+class ConfirmPinViewController<T extends PinFragmentImplement> extends BaseViewController<T> {
     private String mTruthString;
 
     ConfirmPinViewController(T f, View v, String truth) {

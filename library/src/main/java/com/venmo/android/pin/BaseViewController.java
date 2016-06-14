@@ -26,7 +26,7 @@ import java.util.concurrent.ExecutorService;
 import static android.view.MotionEvent.ACTION_DOWN;
 import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
-abstract class BaseViewController<T extends PinFragment> {
+abstract class BaseViewController<T extends PinFragmentImplement> {
 
     private ExecutorService mExecutor;
     protected T mPinFragment;

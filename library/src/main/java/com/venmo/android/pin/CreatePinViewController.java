@@ -6,7 +6,7 @@ import android.view.View;
 import com.venmo.android.pin.view.PinputView;
 import com.venmo.android.pin.view.PinputView.OnCommitListener;
 
-class CreatePinViewController<T extends PinFragment> extends BaseViewController<T> {
+class CreatePinViewController<T extends PinFragmentImplement> extends BaseViewController<T> {
     CreatePinViewController(T f, View v) {
         super(f, v);
     }

@@ -31,12 +31,12 @@ public class TestActivity extends FragmentActivity implements PinListener {
                             reachedMaxTries.set(true);
                         }
                     });
-            PinSdkFragment pf = type == PinDisplayType.CREATE ?
-                    PinSdkFragment.newInstanceForCreation(config) :
-                    PinSdkFragment.newInstanceForVerification(config);
+            PinFragment pf = type == PinDisplayType.CREATE ?
+                    PinFragment.newInstanceForCreation(config) :
+                    PinFragment.newInstanceForVerification(config);
 
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, pf, PinSdkFragment.class.getSimpleName())
+                    .add(R.id.container, pf, PinFragment.class.getSimpleName())
                     .commit();
         }
     }

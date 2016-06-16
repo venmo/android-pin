@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.venmo.android.pin.PinListener;
-import com.venmo.android.pin.PinSdkFragment;
+import com.venmo.android.pin.PinFragment;
 import com.venmo.android.pin.util.PinHelper;
 
 public class PinDemoActivity extends Activity implements PinListener {
@@ -18,8 +18,8 @@ public class PinDemoActivity extends Activity implements PinListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin_demo);
         Fragment toShow = PinHelper.hasDefaultPinSaved(this) ?
-                PinSdkFragment.newInstanceForVerification() :
-                PinSdkFragment.newInstanceForCreation();
+                PinFragment.newInstanceForVerification() :
+                PinFragment.newInstanceForCreation();
 
         getFragmentManager().beginTransaction()
                 .replace(R.id.root, toShow, toShow.getClass().getSimpleName())

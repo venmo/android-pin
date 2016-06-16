@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class PinSdkFragment extends Fragment implements PinFragmentImplement {
+public class PinFragment extends Fragment implements PinFragmentImplement {
 
     private static final String KEY_FRAGMENT_VIEW_TYPE = "com.venmo.input_fragment_view_type";
 
@@ -19,24 +19,24 @@ public class PinSdkFragment extends Fragment implements PinFragmentImplement {
     private PinFragmentConfiguration mConfig;
     private View mRootView;
 
-    public static PinSdkFragment newInstanceForVerification() {
+    public static PinFragment newInstanceForVerification() {
         return newInstanceForVerification(null);
     }
 
-    public static PinSdkFragment newInstanceForVerification(PinFragmentConfiguration config) {
+    public static PinFragment newInstanceForVerification(PinFragmentConfiguration config) {
         return newInstance(PinDisplayType.VERIFY, config);
     }
 
-    public static PinSdkFragment newInstanceForCreation() {
+    public static PinFragment newInstanceForCreation() {
         return newInstanceForCreation(null);
     }
 
-    public static PinSdkFragment newInstanceForCreation(PinFragmentConfiguration config) {
+    public static PinFragment newInstanceForCreation(PinFragmentConfiguration config) {
         return newInstance(PinDisplayType.CREATE, config);
     }
 
-    private static PinSdkFragment newInstance(PinDisplayType type, PinFragmentConfiguration config) {
-        PinSdkFragment instance = new PinSdkFragment();
+    private static PinFragment newInstance(PinDisplayType type, PinFragmentConfiguration config) {
+        PinFragment instance = new PinFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable(KEY_FRAGMENT_VIEW_TYPE, type);
         instance.setArguments(bundle);

@@ -36,7 +36,7 @@ public class TestSupportActivity extends FragmentActivity implements PinListener
                     PinSupportFragment.newInstanceForVerification(config);
 
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, pf, PinSdkFragment.class.getSimpleName())
+                    .add(R.id.container, pf, PinFragment.class.getSimpleName())
                     .commit();
         }
     }

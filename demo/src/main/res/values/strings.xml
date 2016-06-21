@@ -5,5 +5,8 @@
     <string name="action_reset_pin">Reset PIN</string>
     <string name="pin_sdk_fragment">PIN Sdk Demo</string>
     <string name="pin_support_fragment">PIN Support Demo</string>
+    <string name="sdk_demo">SDK Demo</string>
+    <string name="pin_demo">Pin Demo</string>
+    <string name="support_demo">Support Demo</string>
 
 </resources>

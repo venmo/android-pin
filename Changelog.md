@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Adhere to semantic versioning
 - Add pin UI support for android.support.v4.app.Fragment
+- Update lib build tools to 23.0.3'
 
 ## [0.2] - Jan-22-2016
 ### Added

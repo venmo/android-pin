@@ -3,5 +3,7 @@
 
     <string name="app_name">PIN Demo</string>
     <string name="action_reset_pin">Reset PIN</string>
+    <string name="pin_sdk_fragment">PIN Sdk Demo</string>
+    <string name="pin_support_fragment">PIN Support Demo</string>
 
 </resources>

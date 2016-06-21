@@ -1,15 +1,14 @@
 package com.venmo.android.pin;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 
-public class PinFragment extends Fragment implements PinFragmentImplement {
+public class PinSupportFragment extends Fragment implements PinFragmentImplement {
 
     private static final String KEY_FRAGMENT_VIEW_TYPE = "com.venmo.input_fragment_view_type";
 
@@ -19,24 +18,24 @@ public class PinFragment extends Fragment implements PinFragmentImplement {
     private PinFragmentConfiguration mConfig;
     private View mRootView;
 
-    public static PinFragment newInstanceForVerification() {
+    public static PinSupportFragment newInstanceForVerification() {
         return newInstanceForVerification(null);
     }
 
-    public static PinFragment newInstanceForVerification(PinFragmentConfiguration config) {
+    public static PinSupportFragment newInstanceForVerification(PinFragmentConfiguration config) {
         return newInstance(PinDisplayType.VERIFY, config);
     }
 
-    public static PinFragment newInstanceForCreation() {
+    public static PinSupportFragment newInstanceForCreation() {
         return newInstanceForCreation(null);
     }
 
-    public static PinFragment newInstanceForCreation(PinFragmentConfiguration config) {
+    public static PinSupportFragment newInstanceForCreation(PinFragmentConfiguration config) {
         return newInstance(PinDisplayType.CREATE, config);
     }
 
-    private static PinFragment newInstance(PinDisplayType type, PinFragmentConfiguration config) {
-        PinFragment instance = new PinFragment();
+    private static PinSupportFragment newInstance(PinDisplayType type, PinFragmentConfiguration config) {
+        PinSupportFragment instance = new PinSupportFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable(KEY_FRAGMENT_VIEW_TYPE, type);
         instance.setArguments(bundle);
@@ -62,28 +61,21 @@ public class PinFragment extends Fragment implements PinFragmentImplement {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (!(activity instanceof PinListener)) {
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (!(context instanceof PinListener)) {
             throw new ClassCastException(
-                    "Hosting activity must implement PinFragment.Listener");
+                    "Hosting activity must implement PinSupportFragment.Listener");
         } else {
-            mListener = (PinListener) activity;
+            mListener = (PinListener) context;
             if (mConfig == null) setConfig(new PinFragmentConfiguration(getActivity()));
         }
     }
 
-    @Override
-    public Context getContext() {
-        return getActivity();
-    }
-
-    @Override
     public void setConfig(PinFragmentConfiguration config) {
         mConfig = config;
     }
 
-    @Override
     public PinFragmentConfiguration getConfig() {
         return mConfig;
     }

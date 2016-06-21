@@ -3,7 +3,7 @@ import com.android.builder.core.BuilderConstants
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 23
     buildToolsVersion "21.1.2"
 
     defaultConfig {
@@ -30,6 +30,8 @@ android.libraryVariants.all { variant ->
 }
 
 dependencies {
+    compile "com.android.support:support-v4:23.4.0"
+    compile "com.android.support:appcompat-v7:23.4.0"
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.2.1'
 }
 

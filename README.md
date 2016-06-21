@@ -17,10 +17,10 @@ getFragmentManager().beginTransaction()
                 .commit();
 ```
 
-A hosting `Activity` should implement `PinFragment.Listener` to perform actions when a PIN has been created or validated. 
+A hosting `Activity` should implement `PinListener` to perform actions when a PIN has been created or validated. 
 
 ```
-public interface Listener {
+public interface PinListener {
     public void onValidated();
     public void onPinCreated();
 }
@@ -79,6 +79,12 @@ PinFragmentConfiguration config =
 ```
 
 This configuration will instruct your `PinFragment` instance to run `onSave()` and `isValid()` in the background and post to your `PinFragment.Listener` only when a PIN has been successfully created or verified, meaning you don't need to think about scheduling things to happen in the background.
+
+Support Library v4 - Fragment
+=============================
+
+In order to allow use of Fragment from the support library v4, we've added a
+new class `PinSupportFragment` that behave exactly like `PinFragment` but use `android.support.v4.app.Fragment`. Make sure to use it if you need such behavior.
 
 Including in your project
 =========================

@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".PinDemoActivity" >
+    tools:context=".PinSupportDemoActivity" >
     <item android:id="@+id/action_settings"
         android:title="@string/action_reset_pin"
         android:orderInCategory="100"
